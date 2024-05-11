@@ -1,0 +1,13 @@
+:root {
+  --color-primary: #374572;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+}
+
+.card-primary{
+  border-top: 3px solid var(--color-primary);
+}
+
+
