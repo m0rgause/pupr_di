@@ -37,11 +37,33 @@ class RuangController extends Controller
 
         $data['menu_slug'] = Str::slug($data['menu']);
 
-        $data['video'] = request()->file('video')->store('videos'); // store to storage/app/videos
+        //store to public/storage/videos
+        $data['video'] = request('video')->store('videos', 'public/storage');
+
+        $data['body_desc'] = nl2br($data['body_desc']);
 
         Menu::create($data);
 
         return redirect()->route('admin.ruang')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function update($id)
+    {
+        $data = request()->validate([
+            'video' => 'nullable|mimes:mp4',
+        ]);
+
+        $menu = Menu::findOrFail($id);
+
+        if (request()->hasFile('video')) {
+            // delete old video file
+            Storage::delete($menu->video);
+            //store to public/storage/videos
+            $data['video'] = request('video')->store('videos', 'public');
+        }
+        $menu->update($data);
+
+        return redirect()->route('admin.ruang')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy($id)

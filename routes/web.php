@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware(isAuth::class);
 
 Route::get('/floor/{id}', [HomeController::class, 'floor'])->name('floor')->middleware(isAuth::class);
-Route::get('/menu/{id}', [HomeController::class, 'getMenu'])->name('menu')->middleware(isAuth::class);
+Route::get('/menu', [HomeController::class, 'getMenu'])->name('menu')->middleware(isAuth::class);
 
 Route::get('/signin', [AuthController::class, 'signIn'])->name('signin');
 Route::post('/signin', [AuthController::class, 'authenticate'])->name('signin');

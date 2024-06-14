@@ -10,10 +10,10 @@
         </a>
 
         <div class="row d-flex w-100 justify-content-center ">
-            <div class="col-12 text-center fw-bold">
+            <div class="col-12 judul-website text-center fw-bold">
                 <h1 class="title">{{ $setting->title }}</h1>
             </div>
-            <div class="row px-5">
+            <div class="row sosmed px-5">
                 <div class="col-3">
                     <a href="{{ $setting->instagram }}" class="text-dark fw-bolder lh-base">
                         <i class="bi bi-instagram "></i>
@@ -70,7 +70,8 @@
                     </a>
                     @foreach ($menus as $menu)
                         <a href="#{{ $menu->menu_slug }}"
-                            class="list-group list-group-item list-group-item-action py-2 ripple text-white text-center py-4 fs-5">
+                            class="list-group list-group-item list-group-item-action py-2 ripple text-white text-center py-4 fs-5"
+                            data-slug="{{ $menu->menu_slug }}">
                             <span>{{ $menu->menu }}</span>
                         </a>
                     @endforeach
@@ -78,7 +79,8 @@
             </div>
             <div class="dll">
                 <div class="maskot-container">
-                    <img class="maskot" src="../public/uploads/1715344055.png" alt="" style="height: 130px;">
+                    <img class="maskot" src="{{ asset('uploads/1715344055.png') }}" alt=""
+                        style="height: 200px;">
                 </div>
                 <div class="time"></div>
             </div>
@@ -107,7 +109,7 @@
             m = "0" + m;
         }
 
-        var time = h + ":" + m;
+        var time = h + "." + m;
         document.querySelector('.time').innerText = time;
         document.querySelector('.time').textContent = time;
 

@@ -1,12 +1,172 @@
 body {
     background: url('/images/bg.png') no-repeat center center fixed;
     background-size: 100% 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 @media (min-width: 991.98px) {
     main {
         padding-left: 240px;
     }
+}
+
+.row.sosmed {
+    justify-content: flex-end;
+    /* Align items to the right */
+    margin-left: 100px;
+    /* Add margin to the right if needed */
+}
+
+
+.mushola {
+    height: 100% !important;
+}
+
+.row-shalat {
+    height: 100%;
+}
+
+.subuh {
+    background: url('/images/subuh.png') no-repeat center center;
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.zuhur {
+    background: url('/images/zuhur.png') no-repeat center center;
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ashar {
+    background: url('/images/ashar.png') no-repeat center center;
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.magrib {
+    background: url('/images/maghrib.png') no-repeat center center;
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.isya {
+    background: url('/images/isya.png') no-repeat center center;
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Animasi fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Animasi masuk dari kanan */
+@keyframes slideInRight {
+    from {
+        right: -100%;
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+.slideInRight {
+    position: absolute;
+    right: 0;
+    animation: slideInRight 1s forwards;
+}
+
+br {
+    display: block;
+    margin-bottom: 0;
+    line-height: 0.5;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideIn {
+    animation: slideInRight 0.5s ease-in-out;
+}
+
+.col-isi {
+    position: relative;
+}
+
+.nama-shalat {
+    font-family: 'Poppins';
+    font-size: 25;
+    font-weight: 600;
+    color: white;
+}
+
+.row-shalat .col-12 {
+    position: relative;
+    /* Make sure the pseudo-element is positioned correctly */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-size: cover;
+    /* Ensure background covers the entire column */
+    background-position: center center;
+    /* Center the background image */
+    color: white;
+    /* Ensure text is readable on dark background */
+}
+
+.row-shalat .col-12::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black overlay */
+    z-index: 1;
+    /* Ensure the overlay is above the background image */
+}
+
+.row-shalat .col-12 * {
+    position: relative;
+    z-index: 2;
+    /* Ensure text and other content is above the overlay */
+}
+
+.jam-shalat {
+    font-family: 'Poppins';
+    font-size: 18;
+    color: white;
 }
 
 /* Sidebar */
@@ -26,12 +186,14 @@ body {
     background-color: transparent;
     border: none;
     color: white;
+    font-family: 'Poppins';
+    font-size: 16;
 
 }
 
 .bg-sidebar {
     /* 0E3665 */
-    background-color: #0e3765d2;
+    background-color: #0e3765c2;
 }
 
 @media (max-width: 991.98px) {
@@ -42,7 +204,7 @@ body {
 
 .sidebar .active {
     background-color: rgba(255, 255, 255, 0.3);
-
+    transition: 2s;
 }
 
 .sidebar-sticky {
@@ -136,6 +298,48 @@ body {
     /* Center vertically */
 }
 
+.card.asesmen .card-header {
+    margin-bottom: 20px;
+    /* Gap between title and content */
+}
+
+.card.asesmen .isi-asesmen {
+    position: relative;
+}
+
+.jadwal-asesmen {
+    display: flex;
+    margin: 0;
+    position: relative;
+    /* Ensure pseudo-elements are positioned correctly */
+}
+
+
+.jadwal-asesmen::before {
+    top: 0;
+    /* Top border */
+}
+
+.jadwal-asesmen::after {
+    bottom: 0;
+    /* Bottom border */
+}
+
+.jadwal-asesmen:first-of-type::before {
+    top: -20px;
+    /* Move the top border up to create the gap */
+}
+
+.isi {
+    background-color: rgba(40, 39, 39, 0.51);
+    color: white;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+}
+
 
 .card {
     /* fill width */
@@ -150,28 +354,79 @@ body {
     /* Ensure text is readable on dark background */
 }
 
-.judul {
-    width: 100%;
-    border: none;
+.desc {
+    background-color: rgba(40, 39, 39, 0.51);
+    color: white;
 }
 
-.col {
-    width: 100%;
+.embed-responsive {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 
+.embed-responsive-item {
+    /* width: calc(100% - 300px);
+    height: calc(100% - 155px); */
+    width: 90%;
+    height: 90%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.row-isi {
+    width: 100%;
+    height: 100%;
 }
 
 .row {
-    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
 
+
+.isi {
+    border: none;
+    background-color: rgba(218, 216, 216, 0.566);
+}
+
+.card-header:first-child {
+    border-top-right-radius: 0;
+}
+
+.title_desc {
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 29px;
+    padding-top: 20px;
+}
+
+.footer-slider {
+    font-family: 'Inter';
+    font-size: 28;
+    font-weight: bold;
+}
+
+.text-judul {
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 29px;
+    padding-top: 20px;
+}
+
+.col-4 {
+    padding: 0;
+    height: 100%;
 }
 
 .time {
     font-family: 'Inter';
-    font-style: bold;
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: bold;
+    font-size: 36;
     line-height: 50px;
-    color: black;
+    color: #0E3665;
     background-color: white;
     width: 100%;
     display: flex;
@@ -180,20 +435,114 @@ body {
     align-items: center;
 }
 
+.judul {
+    height: 100%;
+}
+
 .maskot-container {
     display: flex;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
-    bottom: 0;
-    padding-bottom: 20px;
-    /* Full viewport height */
+    width: 100%;
+    height: 140px;
+    /* Set the desired height */
+    overflow: hidden;
+    margin-bottom: 10px;
+    /* Ensures any overflow is hidden */
+}
+
+.maskot {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Ensures the image scales properly */
+}
+
+.container-desc {
+    width: 100%;
+    height: calc(100% - 150px);
 }
 
 .maskot {
     width: 150px;
     /* Additional styling if needed */
+}
+
+.body_desc {
+    padding-left: 25px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20;
+    font-family: 'Poppins';
+
+}
+
+.judul-asesmen {
+    background-color: black;
+    border-radius: 0;
+    height: 100px;
+    font-family: 'Poppins';
+    font-size: 20;
+    font-weight: bold;
+}
+
+.jadwal-asesmen {
+    display: flex;
+    margin: 0;
+    /* Remove default margin */
+    height: 110px;
+    max-height: 110px;
+    border-top: 1px solid darkblue;
+}
+
+.jadwal-asesmen:last-of-type {
+    border-bottom: 1px solid #0E3665;
+}
+
+.pelaku {
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 15;
+}
+
+.nama {
+    margin: 0;
+    font-family: 'Poppins';
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 15;
+}
+
+
+.jadwal-asesmen .col-3 .col-8 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    /* Ensure columns do not exceed row width */
+}
+
+.ruangan {
+    background-color: white;
+    color: black;
+}
+
+.nomor-ruangan {
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 25;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.asesmen {
+    height: 100%;
+    border-radius: 0;
 }
 
 .dll {
@@ -213,7 +562,7 @@ body {
     bottom: 0;
     height: 51px;
     width: 100%;
-    background-color: #0e3765d2;
+    background-color: #0e3765;
     color: white;
 
 }
@@ -222,4 +571,7 @@ body {
 #current-day {
     background-color: transparent;
     color: #fff;
+    font-family: 'Poppins';
+    font-size: 40;
+    font-weight: 500;
 }
